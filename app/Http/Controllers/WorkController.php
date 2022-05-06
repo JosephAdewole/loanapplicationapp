@@ -14,9 +14,7 @@ class WorkController extends Controller
     }
     public function index()
     {
-        // if(!request('year')) {
-        //     die("year required");
-        // }
+        
 
         $this->soapWrapper->add('Baseurl', function ($service) {
             $service
@@ -29,10 +27,6 @@ class WorkController extends Controller
         ]]);
 
         dd($results->SubtractResult);
-        echo "<pre>";
-        foreach ($results->holiday as $result) {
-            echo "<strong>" . $result->name->text . "</strong>: " . $result->holidayType . "(" . $result->date->day . '/' . $result->date->month . '/' . $result->date->year . ")" . "<br/>";
-        }
-        echo "</pre>";
+        
     }
 }
