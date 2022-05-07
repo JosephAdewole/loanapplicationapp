@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', 'App\Http\Controllers\WorkController@index');
 
-Route::resource('loans', 'App\Http\Controllers\LoanapplicationController');
-Route::post('calculate_loan', [App\Http\Controllers\LoanapplicationController::class, 'calculate_loan']);
+Route::resource('loans', 'App\Http\Controllers\LoanController');
+Route::post('calculate_loan', [App\Http\Controllers\LoanController::class, 'calculate_loan']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Auth::routes();
