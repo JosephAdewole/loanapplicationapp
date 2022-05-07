@@ -3,9 +3,46 @@
 @section('content')
     <div class="container">
         
-    
-        <table id="table_id" data-order='[[ 1, "asc" ]]' data-page-length='25'>
+        <table style="width: 67%; margin: 0 auto 2em auto;" cellspacing="0" cellpadding="3" border="0">
             <thead>
+                <tr>
+                    <th>Target</th>
+                    <th>Search text</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr id="filter_col1" data-column="0">
+                    <td>ID</td>
+                    <td align="center"><input type="text" class="column_filter" id="col0_filter"></td>
+                    
+                </tr>
+                <tr id="filter_col2" data-column="1">
+                    <td>Amount Borrowed</td>
+                    <td align="center"><input type="text" class="column_filter" id="col1_filter"></td>
+                   
+                </tr>
+                <tr id="filter_col3" data-column="2">
+                    <td>Amount To be Paid Back</td>
+                    <td align="center"><input type="text" class="column_filter" id="col2_filter"></td>
+                </tr>
+                <tr id="filter_col5" data-column="4">
+                    <td>Interest Rate</td>
+                    <td align="center"><input type="text" class="column_filter" id="col3_filter"></td>
+                </tr>
+                <tr id="filter_col6" data-column="5">
+                    <td>Loan Tenure</td>
+                    <td align="center"><input type="text" class="column_filter" id="col4_filter"></td>
+                </tr>
+                <tr id="filter_col6" data-column="5">
+                    <td>Date</td>
+                    <td align="center"><input type="text" class="column_filter" id="col5_filter"></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="table_id" data-order='[[ 1, "asc" ]]' data-page-length='10' class="table">
+            <thead class="thead-dark">
                 <tr>
                     <th>S/N</th>
                     <th>Amount Borrowed</th>

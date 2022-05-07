@@ -39,10 +39,7 @@
               <a class="nav-link disabled" href="#">Disabled</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          
         </div>
       </nav>
 
@@ -55,9 +52,19 @@
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script>
+    function filterColumn ( i ) {
+        $('#table_id').DataTable().column( i ).search(
+            $('#col'+i+'_filter').val(),
+            $('#col'+i+'_smart').prop('checked')
+        ).draw();
+    }
     $(document).ready( function () {
         $('#table_id').DataTable();
+        $('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('tr').attr('data-column') );
+    } );
         
     } );
 </script>
+
 </html>
