@@ -7,7 +7,8 @@ use Artisaninweb\SoapWrapper\SoapWrapper;
 use App\Models\Loan;
 use Auth;
 use Notification;
-use App\Notifications\LoanApplied;
+use App\Notifications\NewLoanApplication;
+use App\Notifications\ThankYouForTakingOutALoan;
 
 class LoanController extends Controller
 {
@@ -71,7 +72,10 @@ class LoanController extends Controller
         $loan->save();
 
         $admin_user = env('ADMIN_EMAIL');
-        Notification::send($admin_user, new LoanApplied($loan));  
+        Notification::route('mail', $admin_user)
+            ->notify(new NewLoanApplication($loan));
+        Notification::route('mail', Auth::user()->email)
+        ->notify(new ThankYouForTakingOutALoan($loan));
         $success = 'Loan successfully applied for.';
         return back()->with(['success'=> $success]);
     }

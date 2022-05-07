@@ -12,12 +12,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::middleware('auth')->group(function () {
-
-    Route::get('/', 'App\Http\Controllers\WorkController@index');
 
     Route::resource('loans', 'App\Http\Controllers\LoanController');
     Route::post('calculate_loan', [App\Http\Controllers\LoanController::class, 'calculate_loan']);

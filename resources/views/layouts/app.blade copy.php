@@ -34,13 +34,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('loans/create')}}">Create Loan</a>
-                          </li>
-                          
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{url('loans')}}">View Loans</a>
-                          </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

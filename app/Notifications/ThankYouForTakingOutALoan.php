@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class LoanApplied extends Notification
+class ThankYouForTakingOutALoan extends Notification
 {
     use Queueable;
 
@@ -42,8 +42,8 @@ class LoanApplied extends Notification
     {
         return (new MailMessage)
                     ->greeting('Hello!')
-                    ->line('There has been a new loan application of '. ' by the following User ')
-                    ->action('View', url('http://127.0.0.1:8000/loans'))
+                    ->line('You just applied for a Loan on our platform')
+                    ->action('Click here to view ', url('http://127.0.0.1:8000/loans'))
                     ->line('Thank you.');
     }
 

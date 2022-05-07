@@ -33,22 +33,30 @@
                 </div>
             @endif
             <div class="row">
-                <form action="{{url('calculate_loan')}}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label for="loan_amount">Amount</label>
-                        <input id="loan_amount" type="number" class="form-input" required name= 'loan_amount'>
-                    </div>
-                    <div class="form-group">
-                        <label for="interest_rate">Interest Rate</label>
-                        <input id="interest_rate" type="number" class="form-input" required name= 'interest_rate'>
-                    </div>
-                    <div class="form-group">
-                        <label for="period">Number of Years</label>
-                        <input id="period" type="number" class="form-input" required name= 'period'>
-                    </div>
-                    <input type="submit" value="Get Loan Details">
-                </form>
+                <div class="col"></div>
+                <div class="col">
+                    <form action="{{url('calculate_loan')}}" method="POST" class="mt-5">
+                        @csrf
+                        <div class="form-group">
+                            <label for="loan_amount">Amount</label>
+                            <input id="loan_amount" type="number" class="form-control" required name= 'loan_amount'>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest_rate">Interest Rate</label>
+                            <input id="interest_rate" type="number" class="form-control" required name= 'interest_rate'>
+                        </div>
+                        <div class="form-group">
+                            <label for="period">Number of Years</label>
+                            <input id="period" type="number" class="form-control" required name= 'period'>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Get Loan Details">
+                    </form>
+
+                </div>
+                <div class="col"></div>
+                
+
+                
             </div>
         @endif
     </div>
