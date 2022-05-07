@@ -53,6 +53,13 @@ class LoanController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'loan_amount' => 'required|integer',
+            'interest_rate' => 'required|integer',
+            'period' => 'required|integer',
+        ]);
+
+        
         $loan = new Loan;
         $loan->loan_amount = $request->loan_amount;
         $loan->period = $request->period;
@@ -66,6 +73,12 @@ class LoanController extends Controller
     }
 
     public function calculate_loan(Request $request){
+
+        $request->validate([
+            'loan_amount' => 'required|integer',
+            'interest_rate' => 'required|integer',
+            'period' => 'required|integer',
+        ]);
 
         $product = $this->multiply($request->loan_amount, $request->interest_rate);
         $product = $this->multiply($product, $request->period);

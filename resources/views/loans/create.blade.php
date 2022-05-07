@@ -22,20 +22,30 @@
             @else
                 
             @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="row">
                 <form action="{{url('calculate_loan')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="loan_amount">Amount</label>
-                        <input id="loan_amount" type="integer" class="form-input" required name= 'loan_amount'>
+                        <input id="loan_amount" type="number" class="form-input" required name= 'loan_amount'>
                     </div>
                     <div class="form-group">
                         <label for="interest_rate">Interest Rate</label>
-                        <input id="interest_rate" type="integer" class="form-input" required name= 'interest_rate'>
+                        <input id="interest_rate" type="number" class="form-input" required name= 'interest_rate'>
                     </div>
                     <div class="form-group">
                         <label for="period">Number of Years</label>
-                        <input id="period" type="integer" class="form-input" required name= 'period'>
+                        <input id="period" type="number" class="form-input" required name= 'period'>
                     </div>
                     <input type="submit" value="Get Loan Details">
                 </form>
