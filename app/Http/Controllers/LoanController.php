@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Artisaninweb\SoapWrapper\SoapWrapper;
 use App\Models\Loan;
 use Auth;
+use Notification;
+use App\Notifications\LoanApplied;
 
 class LoanController extends Controller
 {
@@ -59,7 +61,7 @@ class LoanController extends Controller
             'period' => 'required|integer',
         ]);
 
-        
+
         $loan = new Loan;
         $loan->loan_amount = $request->loan_amount;
         $loan->period = $request->period;
@@ -68,6 +70,8 @@ class LoanController extends Controller
 
         $loan->save();
 
+        $admin_user = env('ADMIN_EMAIL');
+        Notification::send($admin_user, new LoanApplied($loan));  
         $success = 'Loan successfully applied for.';
         return back()->with(['success'=> $success]);
     }

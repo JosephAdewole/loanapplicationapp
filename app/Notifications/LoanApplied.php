@@ -41,9 +41,10 @@ class LoanApplied extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->greeting('Hello!')
+                    ->line('There has been a new loan application of '. ' by the following User ')
+                    ->action('View', url('http://127.0.0.1:8000/loans'))
+                    ->line('Thank you.');
     }
 
     /**
