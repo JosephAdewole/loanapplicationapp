@@ -29,8 +29,7 @@ class LoanController extends Controller
     public function index()
     {
         //
-        $loans = Loan::where('user_id', Auth::user()->id)->get();
-        // dd($loans);
+        $loans = Loan::whereBelongsTo(Auth::user())->get();
         return view('loans.index')->with('loans', $loans);
     }
 

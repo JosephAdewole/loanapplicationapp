@@ -37,7 +37,7 @@
                 </tr>
                 <tr id="filter_col6" data-column="5">
                     <td>Date</td>
-                    <td align="center"><input type="text" class="column_filter" id="col5_filter"></td>
+                    <td align="center"><input type="date" class="column_filter" id="col5_filter"></td>
                 </tr>
             </tbody>
         </table>
